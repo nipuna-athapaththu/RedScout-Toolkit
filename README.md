@@ -4,7 +4,7 @@ Mobile ethical red team orchestration framework
 
 **Mobile-First Ethical Red Team Orchestration Framework**
 
-[![CI](https://github.com/YOUR_USERNAME/redscout/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/redscout/actions)
+[![CI](https://github.com/nipuna-athapaththu/RedScout-Toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/nipuna-athapaththu/RedScout-Toolkit/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
