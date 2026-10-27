@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  redscout:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ../scopes:/app/scopes
+      - ../workflows:/app/workflows
+      - ../vault:/app/vault
+      - ../reports:/app/reports
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    depends_on:
+      - ollama
+
+  ollama:
+    image: ollama/ollama:latest
+    volumes:
+      - ollama_data:/root/.ollama
+    ports:
+      - "11434:11434"
+
+  dashboard:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    command: ["dashboard", "--port", "8000"]
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../vault:/app/vault
+
+volumes:
+  ollama_data:

@@ -1,0 +1,8 @@
+authorized_by: "Nipuna"
+valid_from: "2024-01-01T00:00:00Z"
+valid_until: "2026-12-31T23:59:59Z"
+targets:
+  - "example.com"  # Target එක
+allowed_techniques:
+  - port_scan
+  - web_vuln_scan

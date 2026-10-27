@@ -1,0 +1,9 @@
+name: full_recon
+description: Full reconnaissance workflow for authorized labs
+steps:
+  - plugin: nmap
+    params:
+      ports: "1-2000"
+  - plugin: nuclei
+    params: {}
+    condition: "previous.findings"   # only run if nmap found something

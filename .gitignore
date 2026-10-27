@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+vault/
+reports/
+audit.log
+.env
+scopes/temp_*.yaml
+*.pdf
+*.html
