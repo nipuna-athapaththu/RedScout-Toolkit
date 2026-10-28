@@ -17,7 +17,7 @@ RedScout follows a strict **Pipeline Architecture**: `Input Validation` → `Dyn
 ### ⚙️ Phase 1: Initialization & Ethical Guardrails (The Entry Point)
 When a command is executed, the framework builds its defense layers:
 1. **CLI Parsing (Typer):** The `main.py` core utilizes the `Typer` library to parse incoming command-line arguments and flags dynamically.
-2. **Auto-Scope Generation:** If no predefined YAML scope file (`-s`) is provided, a temporary scope is generated. It uses Python's `datetime` to build a 1-hour validity window and `urllib.parse` to extract the base domain (`netloc`). The domain name is sanitized using RegEx (`re.sub(r'[^a-zA-Z0-9_-]', '_', domain)`) to enforce cross-platform compatibility, preventing breaking operations on Windows OS due to forbidden characters.
+2. **Auto-Scope Generation:** If no predefined YAML scope file (`-s`) is provided, a temporary scope is generated. It uses Python's `datetime` to build a 1-hour validity window and `urllib.parse` to extract the base domain (`netloc`). The domain name is sanitized using RegEx to enforce cross-platform compatibility, preventing breaking operations on Windows OS due to forbidden characters.
 3. **Scope Guard Validation:** The `ScopeGuard` module parses permissions via `PyYAML`, checking two critical vectors:
    * *Temporal Validity:* Validates if the current UTC time is tightly locked between the `valid_from` and `valid_until` windows.
    * *Target Authorization:* Leverages Python’s `ipaddress` module to mathematically verify if the target falls within an authorized CIDR range or strictly matches the domain.
